@@ -1,6 +1,7 @@
 package LoginPurchaseInvoice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -117,6 +118,7 @@ public class LoginPage {
 
     @Test(dependsOnMethods = {"enterDeliveryAddress"})
     public void clickNextButton() throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
         Thread.sleep(3000);
         driver.findElement(By.id("inventory-next-btn")).click();
     }
@@ -140,14 +142,15 @@ public class LoginPage {
     }
 
     @Test(dependsOnMethods = {"selectWarrantyOption"})
-    public void enterDiscountCode() throws InterruptedException {
-        Thread.sleep(2000);
+    public void enterDiscountCode() {//throws InterruptedException {
+        //Thread.sleep(2000);
         driver.findElement(By.id("discount-code")).sendKeys("SAVE10");
         driver.findElement(By.id("apply-discount-btn")).click();
     }
 
     @Test(dependsOnMethods = {"enterDiscountCode"})
     public void clickConfirmPurchaseButton () throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
         Thread.sleep(2000);
         driver.findElement(By.id("purchase-device-btn")).click();
     }
