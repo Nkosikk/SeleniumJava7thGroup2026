@@ -134,48 +134,53 @@ public class LoginPage {
     }
 
     @Test(dependsOnMethods = {"selectShippingMethod"})
-    public void selectWarrantyOption() throws InterruptedException {
-        Thread.sleep(3000);
+    public void selectWarrantyOption() {//throws InterruptedException {
+        //Thread.sleep(3000);
         driver.findElement(By.id("warranty-1yr")).click();
     }
 
     @Test(dependsOnMethods = {"selectWarrantyOption"})
     public void enterDiscountCode() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("discount-code")).sendKeys("SAVE10");
         driver.findElement(By.id("apply-discount-btn")).click();
     }
 
     @Test(dependsOnMethods = {"enterDiscountCode"})
     public void clickConfirmPurchaseButton () throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("purchase-device-btn")).click();
     }
 
     @Test(dependsOnMethods = {"clickConfirmPurchaseButton"})
     public void verifyPurchaseSuccessMessage() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"purchase-success-toast\"]/div[1]/h4")).isDisplayed();
     }
 
     @Test(dependsOnMethods = {"verifyPurchaseSuccessMessage"})
     public void clickViewInvoiceButton() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("view-history-btn")).click();
     }
 
     @Test(dependsOnMethods = {"clickViewInvoiceButton"})
     public void verifyInvoiceHistory () throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("invoice-history-title")).isDisplayed();
     }
 
     @Test(dependsOnMethods = {"verifyInvoiceHistory"})
     public void clickViewInvoiceDetailsButton() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.findElement(By.id("view-invoice-INV-1791755833332")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("[id^='view-invoice-']")).click();
     }
 
+    @Test(dependsOnMethods = {"clickViewInvoiceDetailsButton"})
+    public void verifyInvoiceDetailsPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div/div[1]")).isDisplayed();
+    }
 
     @AfterTest
     public void tearDown() {
