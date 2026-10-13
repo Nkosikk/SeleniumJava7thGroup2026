@@ -1,3 +1,5 @@
+package basics;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,17 +26,17 @@ public class login {
 
     @Test(dependsOnMethods = {"clickLoginButton"})
     public void enterUsername() {
-        driver.findElement(By.id("login-email")).sendKeys("njceles@gmail.com");
+        driver.findElement(By.id("basics.login-email")).sendKeys("njceles@gmail.com");
     }
 
     @Test(dependsOnMethods = {"enterUsername"})
     public void enterPassword() {
-        driver.findElement(By.id("login-password")).sendKeys("@12345678");
+        driver.findElement(By.id("basics.login-password")).sendKeys("@12345678");
     }
 
     @Test(dependsOnMethods = {"enterPassword"})
     public void clickSubmitButton() {
-        driver.findElement(By.id("login-submit")).click();
+        driver.findElement(By.id("basics.login-submit")).click();
     }
 
     @Test(dependsOnMethods = {"clickSubmitButton"})
@@ -43,6 +45,7 @@ public class login {
         driver.findElement(By.xpath("//*[@id=\"app-main-content\"]/section/div[1]/div[1]/h2/span[1]")).isDisplayed();
 
     }
+
 
 
     @AfterTest

@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/njcel/Documents/Projects/Automation/SeleniumJava7thGroup2026">
         <classes>
-            <class name="login"/>
+            <class name="basics.login"/>
         </classes>
     </test>
 </suite>
