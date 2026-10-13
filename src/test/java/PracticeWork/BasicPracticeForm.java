@@ -1,8 +1,8 @@
-package LoginPurchaseInvoice;
+package PracticeWork;
 
 import org.openqa.selenium.WebDriver;
 
-public class WelcomePage {
+public class BasicPracticeForm {
 
     WebDriver driver;
 

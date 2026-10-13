@@ -1,4 +1,4 @@
-package LoginPurchaseInvoice;
+package PracticeWork;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class LoginPage {
+public class InventoryForm {
 
     WebDriver driver;
 
