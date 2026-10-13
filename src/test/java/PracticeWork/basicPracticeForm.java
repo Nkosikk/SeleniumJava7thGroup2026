@@ -77,7 +77,7 @@ public class basicPracticeForm {
         driver.findElement(By.id("gender")).sendKeys("Male");
         driver.findElement(By.id("country")).sendKeys("South Africa");
         driver.findElement(By.id("experience")).sendKeys("beginner");
-        driver.findElement(By.id("skill-testing")).sendKeys("JavaScript");
+        driver.findElement(By.id("skill-javascript")).click();
         driver.findElement(By.id("comments")).sendKeys("This is a test comment.");
         driver.findElement(By.id("terms")).click();
         driver.findElement(By.id("submit-btn")).click();
@@ -106,6 +106,15 @@ public class basicPracticeForm {
                 actualMessage.toLowerCase().contains("success"),
                 "Success message was not displayed!");
         Thread.sleep(2000);
+    }
+    @Test(dependsOnMethods = {"verifyFormData"})
+    public void verifyFormSubmission() throws InterruptedException  {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, -500);");
+        driver.findElement(By.id("submissions-toggle-btn")).click();
+        driver.findElement(By.id("view-submission-0")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div/div[1]/div[2]")).isDisplayed();
+
     }
     @AfterTest
     public void tearDown() {
