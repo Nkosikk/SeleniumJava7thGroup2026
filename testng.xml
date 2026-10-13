@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true"
-          name="C:/Users/njcel/Documents/Projects/Automation/SeleniumJava7thGroup2026">
+    <test verbose="2" preserve-order="true" name="D:/Ndosi_Projects/SeleniumJava7thGroup2026">
         <classes>
-            <class name="login"/>
+            <class name="PracticeWork.inventoryForm">
+                <methods>
+                    <include name="clickLoginButton"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

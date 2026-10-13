@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class InventoryForm {
+public class inventoryForm {
 
     WebDriver driver;
 
@@ -78,72 +78,67 @@ public class InventoryForm {
 
     @Test(dependsOnMethods = {"verifyWebAutomationAdvancePage"})
     public void selectDeviceType() throws InterruptedException {
-        Thread.sleep(3000);
-        //driver.findElement(By.id("deviceType")).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"deviceType\"]/option[2]")).click();
     }
 
     @Test(dependsOnMethods = {"selectDeviceType"})
     public void selectDeviceModel() throws InterruptedException {
-        Thread.sleep(3000);
-       //driver.findElement(By.id("brand")).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"brand\"]/option[2]")).click();
     }
 
     @Test(dependsOnMethods = {"selectDeviceModel"})
     public void selectDeviceStorage() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("storage-128GB")).click();
     }
 
     @Test(dependsOnMethods = {"selectDeviceStorage"})
     public void selectDeviceColor() throws InterruptedException {
-        Thread.sleep(3000);
-        //driver.findElement(By.id("color-blue")).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"color\"]/option[4]")).click();
     }
 
     @Test(dependsOnMethods = {"selectDeviceColor"})
     public void enterDeviceQuantity() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("quantity")).clear();
         driver.findElement(By.id("quantity")).sendKeys("2");
     }
 
     @Test(dependsOnMethods = {"enterDeviceQuantity"})
     public void enterDeliveryAddress() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("address")).sendKeys("123 Main Street, Serengeti, Gauteng, 12345");
     }
 
     @Test(dependsOnMethods = {"enterDeliveryAddress"})
     public void clickNextButton() throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("inventory-next-btn")).click();
     }
 
     @Test(dependsOnMethods = {"clickNextButton"})
     public void verifyOrderPreviewPage() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("review-section-title")).isDisplayed();
     }
 
     @Test(dependsOnMethods = {"verifyOrderPreviewPage"})
     public void selectShippingMethod() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("shipping-option-standard")).click();
     }
 
     @Test(dependsOnMethods = {"selectShippingMethod"})
-    public void selectWarrantyOption() {//throws InterruptedException {
-        //Thread.sleep(3000);
+    public void selectWarrantyOption() {
         driver.findElement(By.id("warranty-1yr")).click();
     }
 
     @Test(dependsOnMethods = {"selectWarrantyOption"})
-    public void enterDiscountCode() {//throws InterruptedException {
-        //Thread.sleep(2000);
+    public void enterDiscountCode() {
         driver.findElement(By.id("discount-code")).sendKeys("SAVE10");
         driver.findElement(By.id("apply-discount-btn")).click();
     }
