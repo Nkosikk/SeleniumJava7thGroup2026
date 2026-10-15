@@ -3,11 +3,15 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/Ndosi_Projects/SeleniumJava7thGroup2026">
         <classes>
+<<<<<<< HEAD
             <class name="PracticeWork.inventoryForm">
                 <methods>
                     <include name="clickLoginButton"/>
                 </methods>
             </class>
+=======
+            <class name="basics.login"/>
+>>>>>>> d9d333ae87437df4786bf20e4f67a2a50ea1bf24
         </classes>
     </test>
 </suite>
