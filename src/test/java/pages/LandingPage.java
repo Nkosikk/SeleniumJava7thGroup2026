@@ -38,9 +38,7 @@ public class LandingPage {
         logoutMenu.click();
     }
 
-    public void clickLogoutButton() {
-        logoutButton.click();
-    }
+    public void clickLogoutButton() {logoutButton.click();}
 
     public void clickLearnTab() {
         learnTab.click();

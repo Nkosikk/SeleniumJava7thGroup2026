@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class LearningMaterialsPage {
 
@@ -41,7 +42,60 @@ public class LearningMaterialsPage {
         this.driver = driver;
     }
 
+    public void clickWebAutomationAdvanceTab(){
+        webAutomationAdvanceTab.click();
+    }
 
+    public void selectDeviceType(String pickedDevice){
+        new Select(deviceType).selectByVisibleText(pickedDevice);
+    }
 
+    public void selectBrand(String pickedBrand){
+        new Select(brand).selectByVisibleText(pickedBrand);
+    }
+
+    public void selectStorage(){
+        storage128GB.click();
+    }
+
+    public void chooseColor(String chosenColor){
+        new Select(color).selectByVisibleText(chosenColor);
+    }
+
+    public void enterQuantity(String number){
+        quantity.sendKeys(number);
+    }
+
+    public void enterAddress(String typedAddress){
+        address.sendKeys(typedAddress);
+    }
+
+    public void clickNextButton(){
+        inventory_next_btn.click();
+    }
+
+    public void selectShipping(){
+        shipping_express.click();
+    }
+
+    public void selectWarranty(){
+        warranty_1yr.click();
+    }
+
+    public void enterDiscountCode(String code){
+        discount_code.sendKeys(code);
+    }
+
+    public void clickAppyDiscountButton(){
+        apply_discount_btn.click();
+    }
+
+    public void confirmPurchase(){
+        purchase_device_btn.click();
+    }
+
+    public void viewInvoice(){
+        view_history_btn.click();
+    }
 
 }

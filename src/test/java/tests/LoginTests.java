@@ -25,17 +25,15 @@ public class LoginTests extends Base {
         landingPage.clickLogoutButton();
     }
 
+    @Test
+    public void invalidLoginTest() throws InterruptedException {
+        homepage.clickLoginButton();
+        loginPage.enterUsername("trenchkid200603@gmail.com");
+        loginPage.enterPassword("Test123");
+        loginPage.clickLoginSubmitButton();
+        takeScreenshots.takeSnapShot(driver, "InvalidLogin");
 
-//
-//    @Test
-//    public void invalidLoginTest() throws InterruptedException {
-//        homepage.clickLoginButton();
-//        loginPage.enterUsername("trenchkid200603@gmail.com");
-//        loginPage.enterPassword("Test123");
-//        loginPage.clickLoginSubmitButton();
-//        //takeScreenshots.takeSnapShot(driver, "InvalidLogin");
-//        //landingPage.verifyLoginSuccess();
-//    }
+    }
 
 
 
