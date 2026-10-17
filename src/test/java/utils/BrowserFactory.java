@@ -4,11 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BrowserFactory {
 
     static WebDriver driver;
 
+    @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url){
         if (browserChoice.equalsIgnoreCase("Chrome")) {
             driver = new ChromeDriver();
@@ -20,5 +23,10 @@ public class BrowserFactory {
         driver.manage().window().maximize();
         driver.get(url);
         return driver;
+    }
+
+    @AfterTest
+    public static void closeBrowser(){
+        driver.quit();
     }
 }
