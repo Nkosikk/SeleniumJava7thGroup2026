@@ -4,97 +4,82 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.openxmlformats.schemas.drawingml.x2006.main.ThemeDocument;
 
 public class LearningMaterialsPage {
 
     WebDriver driver;
 
-    @FindBy(id = "tab-btn-web") WebElement webAutomationAdvanceTab;
+    @FindBy(id = "tab-btn-web")
+    WebElement webAutomationAdvanceTab;
 
-    @FindBy(id = "deviceType") WebElement deviceType;
+    @FindBy(id = "deviceType")
+    WebElement deviceType;
 
-    @FindBy(id = "brand") WebElement brand;
+    @FindBy(id = "brand")
+    WebElement brand;
 
-    @FindBy(id = "storage-128GB")WebElement storage128GB;
+    @FindBy(id = "storage-128GB")
+    WebElement storage128GB;
 
-    @FindBy(id = "color") WebElement color;
+    @FindBy(id = "color")
+    WebElement color;
 
-    @FindBy(id = "quantity") WebElement quantity;
+    @FindBy(id = "quantity")
+    WebElement quantity;
 
-    @FindBy(id = "address")WebElement address;
+    @FindBy(id = "address")
+    WebElement address;
 
-    @FindBy(id = "inventory-next-btn") WebElement inventory_next_btn;
+    @FindBy(id = "inventory-next-btn")
+    WebElement inventory_next_btn;
 
-    @FindBy(id = "shipping-express") WebElement shipping_express;
+    @FindBy(id = "shipping-express")
+    WebElement shipping_express;
 
-    @FindBy(id = "warranty-1yr")WebElement warranty_1yr;
+    @FindBy(id = "warranty-1yr")
+    WebElement warranty_1yr;
 
-    @FindBy(id = "discount-code")WebElement discount_code;
+    @FindBy(id = "discount-code")
+    WebElement discount_code;
 
-    @FindBy(id = "apply-discount-btn")WebElement apply_discount_btn;
+    @FindBy(id = "apply-discount-btn")
+    WebElement apply_discount_btn;
 
-    @FindBy(id = "purchase-device-btn")WebElement purchase_device_btn;
+    @FindBy(id = "purchase-device-btn")
+    WebElement purchase_device_btn;
 
-    @FindBy(id = "view-history-btn") WebElement view_history_btn;
+    @FindBy(id = "view-history-btn")
+    WebElement view_history_btn;
 
 
     public LearningMaterialsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void clickWebAutomationAdvanceTab(){
+    public void clickWebAutomationAdvanceTab() {
         webAutomationAdvanceTab.click();
     }
 
-    public void selectDeviceType(String pickedDevice){
+    public void firstSegmentOfPurchase(String pickedDevice, String selectedBrand, String chosenColor, String enteredQty, String enteredAddress) {
+
         new Select(deviceType).selectByVisibleText(pickedDevice);
-    }
-
-    public void selectBrand(String pickedBrand){
-        new Select(brand).selectByVisibleText(pickedBrand);
-    }
-
-    public void selectStorage(){
+        new Select(brand).selectByVisibleText(selectedBrand);
         storage128GB.click();
-    }
-
-    public void chooseColor(String chosenColor){
         new Select(color).selectByVisibleText(chosenColor);
-    }
-
-    public void enterQuantity(String number){
-        quantity.sendKeys(number);
-    }
-
-    public void enterAddress(String typedAddress){
-        address.sendKeys(typedAddress);
-    }
-
-    public void clickNextButton(){
+        quantity.sendKeys(enteredQty);
+        address.sendKeys(enteredAddress);
         inventory_next_btn.click();
+
     }
 
-    public void selectShipping(){
+    public void secondSegmentOfPurchase(String discountCode) throws InterruptedException {
         shipping_express.click();
-    }
-
-    public void selectWarranty(){
         warranty_1yr.click();
-    }
-
-    public void enterDiscountCode(String code){
-        discount_code.sendKeys(code);
-    }
-
-    public void clickAppyDiscountButton(){
+        discount_code.sendKeys(discountCode);
         apply_discount_btn.click();
-    }
-
-    public void confirmPurchase(){
         purchase_device_btn.click();
-    }
-
-    public void viewInvoice(){
+        Thread.sleep(2000);
         view_history_btn.click();
     }
 

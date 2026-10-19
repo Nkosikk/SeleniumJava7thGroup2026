@@ -18,22 +18,12 @@ public class PurchaseFlowTests extends Base {
     @Test(dependsOnMethods = {"testNavigateToLearningMaterials"})
     public void testDevicePurchase() throws InterruptedException {
         learningMaterialsPage.clickWebAutomationAdvanceTab();
-        learningMaterialsPage.selectDeviceType("Phone");
-        learningMaterialsPage.selectBrand("Apple");
-        learningMaterialsPage.selectStorage();
-        learningMaterialsPage.chooseColor("Blue");
-        learningMaterialsPage.enterQuantity("2");
-        learningMaterialsPage.enterAddress("Selenium street");
-        learningMaterialsPage.clickNextButton();
-        Thread.sleep(1200);
-        learningMaterialsPage.selectShipping();
-        learningMaterialsPage.selectWarranty();
-        learningMaterialsPage.enterDiscountCode("SAVE10 ");
-        learningMaterialsPage.clickAppyDiscountButton();
-        Thread.sleep(1200);
-        learningMaterialsPage.confirmPurchase();
-        Thread.sleep(3500);
-        learningMaterialsPage.viewInvoice();
+        learningMaterialsPage.firstSegmentOfPurchase("Phone", "Apple", "Blue", "2", "Selenium Street");
+        Thread.sleep(2000);
+        takeScreenshots.takeSnapShot(driver, "First part of purchase");
+        learningMaterialsPage.secondSegmentOfPurchase("SAVE10");
+        Thread.sleep(2000);
+        takeScreenshots.takeSnapShot(driver, "Second part of purchase");
     }
 
 
