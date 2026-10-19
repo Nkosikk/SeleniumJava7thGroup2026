@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.HomePage;
 import pages.LandingPage;
+import pages.LoggingOut;
 import pages.LoginPage;
 import utils.BrowserFactory;
 import utils.TakeScreenshots;
@@ -17,4 +18,5 @@ public class Base {
     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     public LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     public TakeScreenshots takeScreenshots = new TakeScreenshots();
+    public LoggingOut loggingOut = PageFactory.initElements(driver, LoggingOut.class);
 }
