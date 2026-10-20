@@ -30,7 +30,7 @@ public class LoginTests extends Base {
 
     }
 
-    @Test
+    @Test (priority = 2)
     public void invalidLoginTest() throws InterruptedException {
         homepage.clickLoginButton();
         loginPage.enterUsername("playtest@gmail.com");
