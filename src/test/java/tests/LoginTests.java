@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class LoginTests extends Base {
@@ -39,8 +40,14 @@ public class LoginTests extends Base {
         landingPage.verifyLoginSuccess();
     }
 
-
     //ToDo: Add logOut functionality test
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
 
 }
