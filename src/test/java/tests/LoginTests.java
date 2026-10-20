@@ -21,8 +21,8 @@ public class LoginTests extends Base {
     public void validLoginTest() throws InterruptedException {
         takeScreenshots.takeSnapShot(driver, "BeforeLogin");
         homepage.clickLoginButton();
-        loginPage.enterUsername("playtest@gmail.com");
-        loginPage.enterPassword("1234567!");
+        loginPage.enterUsername(readData.username);
+        loginPage.enterPassword(readData.password);
         loginPage.clickLoginSubmitButton();
         Thread.sleep(4000);
         landingPage.verifyLoginSuccess();
