@@ -6,6 +6,7 @@ public class LoginTests extends Base {
 
     @Test
     public void VerifyLoginFunctionality() throws InterruptedException {
+        takeScreenshots.takeSnapshot(driver,"BeforeLogin");
         homepage.clickLoginButton();
         Thread.sleep(5000);
         loginPage.enterUsername("nana2017@gmail.com");
@@ -13,6 +14,12 @@ public class LoginTests extends Base {
         loginPage.clickLoginSubmitButton();
         Thread.sleep(5000);
         landingPage.verifyLoginSuccess("Welcome to Ndosis");
+        takeScreenshots.takeSnapshot(driver,"AfterLogin");
+    }
+    @Test (dependsOnMethods = "VerifyLoginFunctionality")
+    public void Logout(){
+        landingPage.clickMenuButton();
+        landingPage.clickLogoutButton();
     }
 }
 
