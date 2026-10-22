@@ -28,6 +28,10 @@ public class LoginTests extends Base {
         landingPage.verifyLoginSuccess();
         takeScreenshots.takeSnapShot(driver, "AfterLogin");
 
+        landingPage.clickMenuButton();
+        landingPage.clickLogoutButton();
+        landingPage.acceptAlert();
+
     }
 
     @Test (priority = 2)
@@ -38,6 +42,7 @@ public class LoginTests extends Base {
         loginPage.clickLoginSubmitButton();
         takeScreenshots.takeSnapShot(driver, "InvalidLogin");
         landingPage.verifyLoginSuccess();
+
     }
 
     //ToDo: Add logOut functionality test
