@@ -18,16 +18,14 @@ public class LoginTests extends Base {
 //
 
     @Test
-    public void validLoginTest() throws InterruptedException {
+    public void validLoginTest() {
         takeScreenshots.takeSnapShot(driver, "BeforeLogin");
         homepage.clickLoginButton();
         loginPage.enterUsername(readData.username);
         loginPage.enterPassword(readData.password);
         loginPage.clickLoginSubmitButton();
-        Thread.sleep(4000);
         landingPage.verifyLoginSuccess();
         takeScreenshots.takeSnapShot(driver, "AfterLogin");
-
         landingPage.clickMenuButton();
         landingPage.clickLogoutButton();
         landingPage.acceptAlert();
@@ -35,17 +33,14 @@ public class LoginTests extends Base {
     }
 
     @Test (priority = 2)
-    public void invalidLoginTest() throws InterruptedException {
+    public void invalidLoginTest(){
         homepage.clickLoginButton();
         loginPage.enterUsername("playtest@gmail.com");
         loginPage.enterPassword("12345");
         loginPage.clickLoginSubmitButton();
         takeScreenshots.takeSnapShot(driver, "InvalidLogin");
-        landingPage.verifyLoginSuccess();
 
     }
-
-    //ToDo: Add logOut functionality test
 
     @AfterClass
     public void tearDown() {

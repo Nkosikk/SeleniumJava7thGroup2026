@@ -34,9 +34,11 @@ public class LandingPage {
 
     }
     public void clickMenuButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(menuTab));
         menuTab.click();
     }
     public  void clickLogoutButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(logoutButton));
         logoutButton.click();
     }
     public void acceptAlert(){
