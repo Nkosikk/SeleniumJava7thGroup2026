@@ -21,7 +21,6 @@ public class BrowserFactory {
                 options.addArguments("--headless=new");
             }
             driver = new ChromeDriver(options);
-            driver = new ChromeDriver();
         }else if (browserChoice.equalsIgnoreCase("FireFOx")) {
             driver = new FirefoxDriver();
         } else {
