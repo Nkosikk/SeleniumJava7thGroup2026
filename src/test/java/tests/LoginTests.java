@@ -14,7 +14,9 @@ public class LoginTests extends Base {
         loginPage.enterUsername("itopeprinting@gmail.com");
         loginPage.enterPassword("Password@123");
         loginPage.clickLoginSubmitButton();
+
     }
+
 
     //ToDo: Add password and submit button tests
 

@@ -14,6 +14,12 @@ public class LandingPage {
     @FindBy(xpath = "//button/span[text()='Logout']")
     WebElement logoutButton;
 
+    @FindBy(xpath = "//span[contains(text(),'Learn')]")
+    WebElement learnButton;
+
+    @FindBy(xpath = "//span[text()='Learning Materials']")
+    WebElement learningMaterials;
+
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -21,6 +27,12 @@ public class LandingPage {
     public void verifyLoginSuccess() {
         myLearningTab.isDisplayed();
     }
+
+    public void learn(){
+        learnButton.click();
+        learningMaterials.click();
+    }
+
     public void logout(){
         logoutButton.click();
     }
