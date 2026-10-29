@@ -1,7 +1,9 @@
 package utils;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -10,15 +12,23 @@ public class BrowserFactory {
     static WebDriver driver;
 
     public static WebDriver startBrowser(String browserChoice, String url){
+
+        boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+
         if (browserChoice.equalsIgnoreCase("Chrome")) {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            if (isHeadless) {
+                options.addArguments("--headless=new");
+            }
+            driver = new ChromeDriver(options);
         }else if (browserChoice.equalsIgnoreCase("FireFOx")) {
             driver = new FirefoxDriver();
         } else {
             driver = new EdgeDriver();
         }
-        driver.manage().window().maximize();
+       // driver.manage().window().maximize();
         driver.get(url);
+        driver.manage().window().setSize(new Dimension(1920,1080));
         return driver;
     }
 }
