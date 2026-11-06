@@ -12,7 +12,7 @@ public class LoginTests extends Base {
 //    }
 //
 //    @Test
-//    public void enterUsernameTests() {
+//    public void enterUsernameTe  sts() {
 //        loginPage.enterUsername("playtest@gmail.com");
 //    }
 //

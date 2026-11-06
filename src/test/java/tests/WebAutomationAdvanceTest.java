@@ -25,7 +25,7 @@ public class WebAutomationAdvanceTest extends Base {
     @Test
     public void AdvancedPage(){
 
-        WebAutoAdvanced.
+       // WebAutoAdvanced.
     }
 
 
